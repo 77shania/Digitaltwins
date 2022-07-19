@@ -1,0 +1,15 @@
+{
+  "main": "./contracts/Contract.sol",
+  "framework": "cfxtruffle-docker",
+  "compilers": {
+    "cfxtruffle": "1.0.3",
+    "solc": "0.8.0",
+    "evmVersion": "istanbul"
+  },
+  "linter": "solhint",
+  "editor": {
+    "fontFamily": "Hack",
+    "fontSize": "13px",
+    "ligatures": false
+  }
+}

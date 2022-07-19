@@ -1,2 +1,2 @@
 # Digitaltwins
- a demo of NFT1155 Contracts in Conflux Chain
+ A simple implementation of a digital twin instance that will be deployed on the Conflux Chain

@@ -1,2 +1,9 @@
 # Digitaltwins
- A simple implementation of a digital twin instance that will be deployed on the Conflux Chain
+This repository is part of my project: "Digital twin entire lifecycle information management based on blockchain and NFT" 
+ A simple case of a digital twins.
+ 
+## Prerequisites
+- **vscode**: https://code.visualstudio.com/
+- **conflux studio**: https://github.com/ObsidianLabs/ConfluxStudio
+- **cess**: https://github.com/CESSProject/cess/wiki/CESS-Gateway-HTTP-API
+

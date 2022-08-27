@@ -34,8 +34,8 @@ contract DTRegistry is AccessControlEnumerable, CRC1155Enumerable, Metadata, Int
     constructor(
         string memory name_,
         string memory symbol_,
-        string memory ipfsuri_
-    ) Metadata(name_, symbol_) ERC1155(ipfsuri_) {
+        string memory cesslink_
+    ) Metadata(name_, symbol_) ERC1155(cesslink_) {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(OWNER, _msgSender());//OWNER
         

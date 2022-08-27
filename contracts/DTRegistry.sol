@@ -30,7 +30,7 @@ contract DTRegistry is AccessControlEnumerable, CRC1155Enumerable, Metadata, Int
     bytes32 public constant RECYCLER = keccak256("RECYCLER");
 
 
-
+// cesslink is the "fileid" returned by CESS
     constructor(
         string memory name_,
         string memory symbol_,

@@ -30,12 +30,12 @@ contract DTRegistry is AccessControlEnumerable, CRC1155Enumerable, Metadata, Int
     bytes32 public constant RECYCLER = keccak256("RECYCLER");
 
 
-// cesslink is the "fileid" returned by CESS
+
     constructor(
         string memory name_,
         string memory symbol_,
-        string memory cesslink_
-    ) Metadata(name_, symbol_) ERC1155(cesslink_) {
+        string memory ipfsuri_
+    ) Metadata(name_, symbol_) ERC1155(ipfsuri_) {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         _setupRole(OWNER, _msgSender());//OWNER
         

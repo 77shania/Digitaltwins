@@ -1,0 +1,2034 @@
+{
+  "contractName": "PoSRegister",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "identifier",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "votePower",
+          "type": "uint64"
+        }
+      ],
+      "name": "IncreaseStake",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "identifier",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "blsPubKey",
+          "type": "bytes"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "vrfPubKey",
+          "type": "bytes"
+        }
+      ],
+      "name": "Register",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "identifier",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "votePower",
+          "type": "uint64"
+        }
+      ],
+      "name": "Retire",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "indentifier",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint64",
+          "name": "votePower",
+          "type": "uint64"
+        },
+        {
+          "internalType": "bytes",
+          "name": "blsPubKey",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "vrfPubKey",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes[2]",
+          "name": "blsPubKeyProof",
+          "type": "bytes[2]"
+        }
+      ],
+      "name": "register",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "votePower",
+          "type": "uint64"
+        }
+      ],
+      "name": "increaseStake",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "votePower",
+          "type": "uint64"
+        }
+      ],
+      "name": "retire",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "identifier",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getVotes",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "identifier",
+          "type": "bytes32"
+        }
+      ],
+      "name": "identifierToAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "addressToIdentifier",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"identifier\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"votePower\",\"type\":\"uint64\"}],\"name\":\"IncreaseStake\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"identifier\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"blsPubKey\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"vrfPubKey\",\"type\":\"bytes\"}],\"name\":\"Register\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"identifier\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"votePower\",\"type\":\"uint64\"}],\"name\":\"Retire\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"addressToIdentifier\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"identifier\",\"type\":\"bytes32\"}],\"name\":\"getVotes\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"identifier\",\"type\":\"bytes32\"}],\"name\":\"identifierToAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"votePower\",\"type\":\"uint64\"}],\"name\":\"increaseStake\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"indentifier\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"votePower\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"blsPubKey\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"vrfPubKey\",\"type\":\"bytes\"},{\"internalType\":\"bytes[2]\",\"name\":\"blsPubKeyProof\",\"type\":\"bytes[2]\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"votePower\",\"type\":\"uint64\"}],\"name\":\"retire\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"IncreaseStake(bytes32,uint64)\":{\"details\":\"Emitted when increaseStake method executed successfully\"},\"Register(bytes32,bytes,bytes)\":{\"details\":\"Emitted when register method executed successfully\"},\"Retire(bytes32,uint64)\":{\"details\":\"Emitted when retire method executed successfully\"}},\"kind\":\"dev\",\"methods\":{\"addressToIdentifier(address)\":{\"details\":\"Query the PoS address binding with specified PoW address\",\"params\":{\"addr\":\"- PoW address\"}},\"getVotes(bytes32)\":{\"details\":\"Query PoS account's lock info. Include \\\"totalStakedVotes\\\" and \\\"totalUnlockedVotes\\\"\",\"params\":{\"identifier\":\"- PoS address\"}},\"identifierToAddress(bytes32)\":{\"details\":\"Query the PoW address binding with specified PoS address\",\"params\":{\"identifier\":\"- PoS address\"}},\"increaseStake(uint64)\":{\"details\":\"Increase specified number votes for msg.sender\",\"params\":{\"votePower\":\"- count of votes to increase\"}},\"register(bytes32,uint64,bytes,bytes,bytes[2])\":{\"details\":\"Register PoS account\",\"params\":{\"blsPubKey\":\"- BLS public key\",\"blsPubKeyProof\":\"- BLS public key's proof of legality, used to against some attack, generated by conflux-rust fullnode\",\"indentifier\":\"- PoS account address to register\",\"votePower\":\"- votes count\",\"vrfPubKey\":\"- VRF public key\"}},\"retire(uint64)\":{\"details\":\"Retire specified number votes for msg.sender\",\"params\":{\"votePower\":\"- count of votes to retire\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@confluxfans/contracts/InternalContracts/PoSRegister.sol\":\"PoSRegister\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@confluxfans/contracts/InternalContracts/PoSRegister.sol\":{\"keccak256\":\"0x353372cadc3f7b45287d9947d813b2998d944d3f2d472ae32ba64552d012b1e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e900e4299f25d7f6b1f38f9dbcefac3b359534b7e2e4212a7eed6586773f03a\",\"dweb:/ipfs/QmewtZFsFzFAWuzCAWwEet8bUR8rM48rz9phbhpCHHgpqQ\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.5.0;\n\ninterface PoSRegister {\n    /**\n     * @dev Register PoS account\n     * @param indentifier - PoS account address to register\n     * @param votePower - votes count\n     * @param blsPubKey - BLS public key\n     * @param vrfPubKey - VRF public key\n     * @param blsPubKeyProof - BLS public key's proof of legality, used to against some attack, generated by conflux-rust fullnode\n     */\n    function register(\n        bytes32 indentifier,\n        uint64 votePower,\n        bytes calldata blsPubKey,\n        bytes calldata vrfPubKey,\n        bytes[2] calldata blsPubKeyProof\n    ) external;\n\n    /**\n     * @dev Increase specified number votes for msg.sender\n     * @param votePower - count of votes to increase\n     */\n    function increaseStake(uint64 votePower) external;\n\n    /**\n     * @dev Retire specified number votes for msg.sender\n     * @param votePower - count of votes to retire\n     */\n    function retire(uint64 votePower) external;\n\n    /**\n     * @dev Query PoS account's lock info. Include \"totalStakedVotes\" and \"totalUnlockedVotes\"\n     * @param identifier - PoS address\n     */\n    function getVotes(bytes32 identifier) external view returns (uint256, uint256);\n\n    /**\n     * @dev Query the PoW address binding with specified PoS address\n     * @param identifier - PoS address\n     */\n    function identifierToAddress(bytes32 identifier) external view returns (address);\n\n    /**\n     * @dev Query the PoS address binding with specified PoW address\n     * @param addr - PoW address\n     */\n    function addressToIdentifier(address addr) external view returns (bytes32);\n\n    /**\n     * @dev Emitted when register method executed successfully\n     */\n    event Register(bytes32 indexed identifier, bytes blsPubKey, bytes vrfPubKey);\n\n    /**\n     * @dev Emitted when increaseStake method executed successfully\n     */\n    event IncreaseStake(bytes32 indexed identifier, uint64 votePower);\n\n    /**\n     * @dev Emitted when retire method executed successfully\n     */\n    event Retire(bytes32 indexed identifier, uint64 votePower);\n}\n",
+  "sourcePath": "@confluxfans/contracts/InternalContracts/PoSRegister.sol",
+  "ast": {
+    "absolutePath": "@confluxfans/contracts/InternalContracts/PoSRegister.sol",
+    "exportedSymbols": {
+      "PoSRegister": [
+        1453
+      ]
+    },
+    "id": 1454,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1375,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:8"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1453,
+        "linearizedBaseContracts": [
+          1453
+        ],
+        "name": "PoSRegister",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 1376,
+              "nodeType": "StructuredDocumentation",
+              "src": "86:355:8",
+              "text": " @dev Register PoS account\n @param indentifier - PoS account address to register\n @param votePower - votes count\n @param blsPubKey - BLS public key\n @param vrfPubKey - VRF public key\n @param blsPubKeyProof - BLS public key's proof of legality, used to against some attack, generated by conflux-rust fullnode"
+            },
+            "functionSelector": "e335b451",
+            "id": 1391,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "register",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1389,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1378,
+                  "mutability": "mutable",
+                  "name": "indentifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "473:19:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1377,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "473:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1380,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "502:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1379,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "502:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1382,
+                  "mutability": "mutable",
+                  "name": "blsPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "528:24:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1381,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "528:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1384,
+                  "mutability": "mutable",
+                  "name": "vrfPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "562:24:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1383,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "562:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1388,
+                  "mutability": "mutable",
+                  "name": "blsPubKeyProof",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "596:32:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes_calldata_ptr_$2_calldata_ptr",
+                    "typeString": "bytes[2]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1385,
+                      "name": "bytes",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "596:5:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_storage_ptr",
+                        "typeString": "bytes"
+                      }
+                    },
+                    "id": 1387,
+                    "length": {
+                      "hexValue": "32",
+                      "id": 1386,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "602:1:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_2_by_1",
+                        "typeString": "int_const 2"
+                      },
+                      "value": "2"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "596:8:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes_storage_$2_storage_ptr",
+                      "typeString": "bytes[2]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "463:171:8"
+            },
+            "returnParameters": {
+              "id": 1390,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "643:0:8"
+            },
+            "scope": 1453,
+            "src": "446:198:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1392,
+              "nodeType": "StructuredDocumentation",
+              "src": "650:123:8",
+              "text": " @dev Increase specified number votes for msg.sender\n @param votePower - count of votes to increase"
+            },
+            "functionSelector": "09fecf7f",
+            "id": 1397,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "increaseStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1394,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1397,
+                  "src": "801:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1393,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "800:18:8"
+            },
+            "returnParameters": {
+              "id": 1396,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "827:0:8"
+            },
+            "scope": 1453,
+            "src": "778:50:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1398,
+              "nodeType": "StructuredDocumentation",
+              "src": "834:119:8",
+              "text": " @dev Retire specified number votes for msg.sender\n @param votePower - count of votes to retire"
+            },
+            "functionSelector": "f49d0638",
+            "id": 1403,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "retire",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1401,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1400,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1403,
+                  "src": "974:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1399,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "974:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "973:18:8"
+            },
+            "returnParameters": {
+              "id": 1402,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1000:0:8"
+            },
+            "scope": 1453,
+            "src": "958:43:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1404,
+              "nodeType": "StructuredDocumentation",
+              "src": "1007:145:8",
+              "text": " @dev Query PoS account's lock info. Include \"totalStakedVotes\" and \"totalUnlockedVotes\"\n @param identifier - PoS address"
+            },
+            "functionSelector": "4c051100",
+            "id": 1413,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVotes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1407,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1406,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1413,
+                  "src": "1175:18:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1405,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1175:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1174:20:8"
+            },
+            "returnParameters": {
+              "id": 1412,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1409,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1413,
+                  "src": "1218:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1408,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1218:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1411,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1413,
+                  "src": "1227:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1227:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1217:18:8"
+            },
+            "scope": 1453,
+            "src": "1157:79:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1414,
+              "nodeType": "StructuredDocumentation",
+              "src": "1242:119:8",
+              "text": " @dev Query the PoW address binding with specified PoS address\n @param identifier - PoS address"
+            },
+            "functionSelector": "e9e4aa46",
+            "id": 1421,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "identifierToAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1417,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1416,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1421,
+                  "src": "1395:18:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1415,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1395:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1394:20:8"
+            },
+            "returnParameters": {
+              "id": 1420,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1419,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1421,
+                  "src": "1438:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1418,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1438:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1437:9:8"
+            },
+            "scope": 1453,
+            "src": "1366:81:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1422,
+              "nodeType": "StructuredDocumentation",
+              "src": "1453:113:8",
+              "text": " @dev Query the PoS address binding with specified PoW address\n @param addr - PoW address"
+            },
+            "functionSelector": "6a06ea96",
+            "id": 1429,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addressToIdentifier",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1425,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1424,
+                  "mutability": "mutable",
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1429,
+                  "src": "1600:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1423,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1600:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1599:14:8"
+            },
+            "returnParameters": {
+              "id": 1428,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1427,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1429,
+                  "src": "1637:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1426,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1637:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1636:9:8"
+            },
+            "scope": 1453,
+            "src": "1571:75:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 1430,
+              "nodeType": "StructuredDocumentation",
+              "src": "1652:74:8",
+              "text": " @dev Emitted when register method executed successfully"
+            },
+            "id": 1438,
+            "name": "Register",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1437,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1432,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1438,
+                  "src": "1746:26:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1431,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1746:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1434,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "blsPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1438,
+                  "src": "1774:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1433,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1774:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1436,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "vrfPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1438,
+                  "src": "1791:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1435,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1791:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1745:62:8"
+            },
+            "src": "1731:77:8"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 1439,
+              "nodeType": "StructuredDocumentation",
+              "src": "1814:79:8",
+              "text": " @dev Emitted when increaseStake method executed successfully"
+            },
+            "id": 1445,
+            "name": "IncreaseStake",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1444,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1441,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1445,
+                  "src": "1918:26:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1440,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1918:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1443,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1445,
+                  "src": "1946:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1442,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1946:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1917:46:8"
+            },
+            "src": "1898:66:8"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 1446,
+              "nodeType": "StructuredDocumentation",
+              "src": "1970:72:8",
+              "text": " @dev Emitted when retire method executed successfully"
+            },
+            "id": 1452,
+            "name": "Retire",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1448,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "2060:26:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1447,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2060:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1450,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "2088:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1449,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2088:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2059:46:8"
+            },
+            "src": "2047:59:8"
+          }
+        ],
+        "scope": 1454,
+        "src": "58:2050:8"
+      }
+    ],
+    "src": "32:2077:8"
+  },
+  "legacyAST": {
+    "absolutePath": "@confluxfans/contracts/InternalContracts/PoSRegister.sol",
+    "exportedSymbols": {
+      "PoSRegister": [
+        1453
+      ]
+    },
+    "id": 1454,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1375,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:8"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 1453,
+        "linearizedBaseContracts": [
+          1453
+        ],
+        "name": "PoSRegister",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 1376,
+              "nodeType": "StructuredDocumentation",
+              "src": "86:355:8",
+              "text": " @dev Register PoS account\n @param indentifier - PoS account address to register\n @param votePower - votes count\n @param blsPubKey - BLS public key\n @param vrfPubKey - VRF public key\n @param blsPubKeyProof - BLS public key's proof of legality, used to against some attack, generated by conflux-rust fullnode"
+            },
+            "functionSelector": "e335b451",
+            "id": 1391,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "register",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1389,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1378,
+                  "mutability": "mutable",
+                  "name": "indentifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "473:19:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1377,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "473:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1380,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "502:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1379,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "502:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1382,
+                  "mutability": "mutable",
+                  "name": "blsPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "528:24:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1381,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "528:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1384,
+                  "mutability": "mutable",
+                  "name": "vrfPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "562:24:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1383,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "562:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1388,
+                  "mutability": "mutable",
+                  "name": "blsPubKeyProof",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1391,
+                  "src": "596:32:8",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes_calldata_ptr_$2_calldata_ptr",
+                    "typeString": "bytes[2]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 1385,
+                      "name": "bytes",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "596:5:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_storage_ptr",
+                        "typeString": "bytes"
+                      }
+                    },
+                    "id": 1387,
+                    "length": {
+                      "hexValue": "32",
+                      "id": 1386,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "602:1:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_2_by_1",
+                        "typeString": "int_const 2"
+                      },
+                      "value": "2"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "596:8:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes_storage_$2_storage_ptr",
+                      "typeString": "bytes[2]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "463:171:8"
+            },
+            "returnParameters": {
+              "id": 1390,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "643:0:8"
+            },
+            "scope": 1453,
+            "src": "446:198:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1392,
+              "nodeType": "StructuredDocumentation",
+              "src": "650:123:8",
+              "text": " @dev Increase specified number votes for msg.sender\n @param votePower - count of votes to increase"
+            },
+            "functionSelector": "09fecf7f",
+            "id": 1397,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "increaseStake",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1395,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1394,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1397,
+                  "src": "801:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1393,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "801:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "800:18:8"
+            },
+            "returnParameters": {
+              "id": 1396,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "827:0:8"
+            },
+            "scope": 1453,
+            "src": "778:50:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1398,
+              "nodeType": "StructuredDocumentation",
+              "src": "834:119:8",
+              "text": " @dev Retire specified number votes for msg.sender\n @param votePower - count of votes to retire"
+            },
+            "functionSelector": "f49d0638",
+            "id": 1403,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "retire",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1401,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1400,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1403,
+                  "src": "974:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1399,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "974:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "973:18:8"
+            },
+            "returnParameters": {
+              "id": 1402,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1000:0:8"
+            },
+            "scope": 1453,
+            "src": "958:43:8",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1404,
+              "nodeType": "StructuredDocumentation",
+              "src": "1007:145:8",
+              "text": " @dev Query PoS account's lock info. Include \"totalStakedVotes\" and \"totalUnlockedVotes\"\n @param identifier - PoS address"
+            },
+            "functionSelector": "4c051100",
+            "id": 1413,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVotes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1407,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1406,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1413,
+                  "src": "1175:18:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1405,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1175:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1174:20:8"
+            },
+            "returnParameters": {
+              "id": 1412,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1409,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1413,
+                  "src": "1218:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1408,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1218:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1411,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1413,
+                  "src": "1227:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1227:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1217:18:8"
+            },
+            "scope": 1453,
+            "src": "1157:79:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1414,
+              "nodeType": "StructuredDocumentation",
+              "src": "1242:119:8",
+              "text": " @dev Query the PoW address binding with specified PoS address\n @param identifier - PoS address"
+            },
+            "functionSelector": "e9e4aa46",
+            "id": 1421,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "identifierToAddress",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1417,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1416,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1421,
+                  "src": "1395:18:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1415,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1395:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1394:20:8"
+            },
+            "returnParameters": {
+              "id": 1420,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1419,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1421,
+                  "src": "1438:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1418,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1438:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1437:9:8"
+            },
+            "scope": 1453,
+            "src": "1366:81:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 1422,
+              "nodeType": "StructuredDocumentation",
+              "src": "1453:113:8",
+              "text": " @dev Query the PoS address binding with specified PoW address\n @param addr - PoW address"
+            },
+            "functionSelector": "6a06ea96",
+            "id": 1429,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addressToIdentifier",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1425,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1424,
+                  "mutability": "mutable",
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1429,
+                  "src": "1600:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1423,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1600:7:8",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1599:14:8"
+            },
+            "returnParameters": {
+              "id": 1428,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1427,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1429,
+                  "src": "1637:7:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1426,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1637:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1636:9:8"
+            },
+            "scope": 1453,
+            "src": "1571:75:8",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 1430,
+              "nodeType": "StructuredDocumentation",
+              "src": "1652:74:8",
+              "text": " @dev Emitted when register method executed successfully"
+            },
+            "id": 1438,
+            "name": "Register",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1437,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1432,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1438,
+                  "src": "1746:26:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1431,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1746:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1434,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "blsPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1438,
+                  "src": "1774:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1433,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1774:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1436,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "vrfPubKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1438,
+                  "src": "1791:15:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 1435,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1791:5:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1745:62:8"
+            },
+            "src": "1731:77:8"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 1439,
+              "nodeType": "StructuredDocumentation",
+              "src": "1814:79:8",
+              "text": " @dev Emitted when increaseStake method executed successfully"
+            },
+            "id": 1445,
+            "name": "IncreaseStake",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1444,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1441,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1445,
+                  "src": "1918:26:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1440,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1918:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1443,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1445,
+                  "src": "1946:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1442,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1946:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1917:46:8"
+            },
+            "src": "1898:66:8"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 1446,
+              "nodeType": "StructuredDocumentation",
+              "src": "1970:72:8",
+              "text": " @dev Emitted when retire method executed successfully"
+            },
+            "id": 1452,
+            "name": "Retire",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1448,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "identifier",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "2060:26:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1447,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2060:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1450,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "votePower",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1452,
+                  "src": "2088:16:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 1449,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2088:6:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2059:46:8"
+            },
+            "src": "2047:59:8"
+          }
+        ],
+        "scope": 1454,
+        "src": "58:2050:8"
+      }
+    ],
+    "src": "32:2077:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2022-05-19T01:55:05.201Z",
+  "devdoc": {
+    "events": {
+      "IncreaseStake(bytes32,uint64)": {
+        "details": "Emitted when increaseStake method executed successfully"
+      },
+      "Register(bytes32,bytes,bytes)": {
+        "details": "Emitted when register method executed successfully"
+      },
+      "Retire(bytes32,uint64)": {
+        "details": "Emitted when retire method executed successfully"
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "addressToIdentifier(address)": {
+        "details": "Query the PoS address binding with specified PoW address",
+        "params": {
+          "addr": "- PoW address"
+        }
+      },
+      "getVotes(bytes32)": {
+        "details": "Query PoS account's lock info. Include \"totalStakedVotes\" and \"totalUnlockedVotes\"",
+        "params": {
+          "identifier": "- PoS address"
+        }
+      },
+      "identifierToAddress(bytes32)": {
+        "details": "Query the PoW address binding with specified PoS address",
+        "params": {
+          "identifier": "- PoS address"
+        }
+      },
+      "increaseStake(uint64)": {
+        "details": "Increase specified number votes for msg.sender",
+        "params": {
+          "votePower": "- count of votes to increase"
+        }
+      },
+      "register(bytes32,uint64,bytes,bytes,bytes[2])": {
+        "details": "Register PoS account",
+        "params": {
+          "blsPubKey": "- BLS public key",
+          "blsPubKeyProof": "- BLS public key's proof of legality, used to against some attack, generated by conflux-rust fullnode",
+          "indentifier": "- PoS account address to register",
+          "votePower": "- votes count",
+          "vrfPubKey": "- VRF public key"
+        }
+      },
+      "retire(uint64)": {
+        "details": "Retire specified number votes for msg.sender",
+        "params": {
+          "votePower": "- count of votes to retire"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

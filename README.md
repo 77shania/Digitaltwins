@@ -1,5 +1,5 @@
 # Digitaltwins
-This repository is part of my project: "Digital twin entire lifecycle information management based on blockchain and NFT" 
+This repository is part of my project: "BDTwins: Blockchain-based Digital Twins Lifecycle Management" 
 
  A simple case of a digital twins.
  
